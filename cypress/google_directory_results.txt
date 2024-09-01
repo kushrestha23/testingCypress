@@ -1,0 +1,20 @@
+Business 1: X Web Coder, Address: , Phone: 
+Business 2: Sofvie Inc., Address: , Phone: 
+Business 3: Creative GOAT, Address: , Phone: 
+Business 4: Sudbury Website Design, Web Developer, Graphic Design, Address: , Phone: 
+Business 5: Key Logic Software Solutions, Address: , Phone: 
+Business 6: Digital Waves, Address: , Phone: 
+Business 7: FlashTheSloth Technology Inc., Address: , Phone: Open 24 hours · (705) 664-0400
+Business 8: Linnovative Solutions Inc., Address: , Phone: Greater Sudbury, ON
+Business 9: MineRP Canada, Address: , Phone: 
+Business 10: Centric Mining Systems, Address: , Phone: 
+Business 11: The Wright Web Design inc., Address: , Phone: 
+Business 12: Symboticware Inc., Address: , Phone: 
+Business 13: TheWebBoutique.ca, Address: , Phone: 
+Business 14: North Computing - Business IT Support & Managed IT Services, Address: , Phone: 
+Business 15: Code Babbage, Address: , Phone: 
+Business 16: The Kore Project, Address: , Phone: 
+Business 17: Datamine, Address: , Phone: 
+Business 18: Aurora Microsystems, Address: , Phone: 
+Business 19: Computrek, Address: , Phone: 
+Business 20: Mabratech Inc., Address: , Phone: 
