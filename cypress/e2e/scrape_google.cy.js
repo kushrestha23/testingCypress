@@ -1,12 +1,9 @@
 describe("Google Search Scraping", () => {
   const SearchQuery = "Software Development Company in Greater Subury Area";
 
-  beforeEach(() => {
+  it("Navigates to Google and searches for the query and store the results to text file. ", () => {
     cy.visit("https://www.google.com");
-  });
-
-  it("Navigates to Google and searches for a query ", () => {
-    cy.get('[name="q"]').should("be.visible");
+    cy.get('[name="q"]', { timeout: 15000 }).should("be.visible");
     cy.get('[name="q"]').type(`${SearchQuery}{enter}`);
     cy.wait(3000);
 
@@ -18,10 +15,6 @@ describe("Google Search Scraping", () => {
           cy.log(`Result ${index + 1}: ${text}`);
         });
     });
-  });
-
-  it("Stores search results in a file", () => {
-    cy.get('[name="q]').type(`${SearchQuery}{enter}`);
 
     cy.wait(3000);
 
