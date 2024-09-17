@@ -3,3 +3,4 @@ cypress/screenshots/
 cypress/videos/
 cypress/search_results.txt
 cypress/google_directory_results.txt
+google_directory_results.txt
