@@ -1,5 +1,34 @@
 describe("Google Search Scraping", () => {
   const SearchQuery = "Software Development Company in Greater Subury Area";
+  const resultsFilePath = "google_directory_results.txt";
+
+  /**
+   * Safely extracts text from a given element and selector
+   * @param {Cypress.Object} element - The cypress-wrapped DOM element.
+   * @param {String} selector - The CSS selector
+   * @return {String} The extracted text.
+   */
+  const safeExtractText = (element, selector) => {
+    return element.find(selector).text() || "";
+  };
+
+  /**
+   *Logs and writes search results to a file.
+    @param {Number} index - The index of the business.
+    @param {String} businessName - The name of the business. 
+    @param {String} address - The address of the business.
+    @param {String} phoneNumber - The phone number of the business.
+  */
+
+  const longAndWriteResults = (index, businessName, address, phoneNumber) => {
+    const result = `Business ${index}: ${businessName}, Address: ${address}, Phone: ${phoneNumber}`;
+    cy.log(result);
+    cy.writeFile(resultsFilePath, `${result}\n`, { flag: "a" });
+  };
+
+  before(() => {
+    cy.writeFile(resultsFilePath, "", { flag: "w" });
+  });
 
   it("Navigates to Google and searches for the query and store the results to text file. ", () => {
     cy.visit("https://www.google.com");
@@ -13,47 +42,10 @@ describe("Google Search Scraping", () => {
 
     cy.get(".VkpGBb").each(($el, index) => {
       const businessName = $el.find(".dbg0pd").text();
-
       const address = $el.find(".rllt__wrapped").text();
-
       const phoneNumber = $el.find(".rllt__details div").eq(2).text();
 
-      // cy.get("div.g").each(($el, index) => {
-      //   cy.wrap($el)
-      //     .find("a")
-      //     .invoke("text")
-      //     .then((text) => {
-      //       cy.log(`Result ${index + 1}: ${text}`);
-      //     });
-      // });
-
-      // cy.wait(3000);
-
-      // cy.get("div.g").each(($el, index) => {
-      //   cy.wrap($el)
-      //     .find("a")
-      //     .invoke("text")
-      //     .then((text) => {
-      //       cy.writeFile(
-      //         "cypress/search_results.txt",
-      //         `Results ${index + 1}: ${text}\n`,
-      //         {
-      //           flag: "a",
-      //         }
-      //       );
-      //     });
-      cy.log(
-        `Business ${
-          index + 1
-        }: ${businessName}, Address: ${address}, Phone: ${phoneNumber}`
-      );
-      cy.writeFile(
-        "cypress/google_directory_results.txt",
-        `Business ${
-          index + 1
-        }: ${businessName}, Address: ${address}, Phone: ${phoneNumber}\n`,
-        { flag: "a" }
-      );
+      longAndWriteResults(index + 1, businessName, address, phoneNumber);
     });
   });
 });
